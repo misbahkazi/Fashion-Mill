@@ -37,4 +37,13 @@ public class PageController
 		
 		return "ContactUs";
 	}
+	
+	
+	@RequestMapping("/")
+	public String showHeader(Model m)
+	{
+		m.addAttribute("pageinfo","Header");
+		return "Header";
+	}
+	
 }

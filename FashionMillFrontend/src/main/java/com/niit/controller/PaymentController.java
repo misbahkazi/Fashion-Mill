@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.dao.CartDAO;
+import com.niit.dao.OrderDAO;
 import com.niit.dao.ProductDAO;
 import com.niit.dao.UserDetailDAO;
 import com.niit.model.CartItem;
@@ -32,6 +33,9 @@ public class PaymentController {
     UserDetailDAO userDAO;
     
     
+    @Autowired
+    OrderDAO orderDAO;
+    
     @RequestMapping("/checkout")
     public String checkout(Model m,HttpSession session)
     {
@@ -49,19 +53,6 @@ public class PaymentController {
   	  
   	    return"OrderConfirm";
     }
-    
-    
-    public int getGrandTotal(List<CartItem> cartList)
-  	 {
-  		int grandTotal=0,count=0;
-  		while(count<cartList.size())
-  		{
-  			grandTotal=grandTotal+(cartList.get(count).getQuantity()*cartList.get(count).getPrice());
-  			count++;
-  		}
-  		return grandTotal;
-  	}
-
     
     
     
@@ -94,14 +85,14 @@ public class PaymentController {
     }
     
     @RequestMapping(value="/receipt", method=RequestMethod.POST)
-    public String generateReceipt(@RequestParam ("rd") String rd, Model m,HttpSession session)
+    public String generateReceipt(@RequestParam ("paymentmode") String paymentmode, Model m,HttpSession session)
     {
   	  String username=(String)session.getAttribute("username");
   	  
   	  OrderDetail orderDetail=new OrderDetail();
   	  orderDetail.setOrderDate(new Date());
   	  orderDetail.setShippingAddr(userDAO.getUser(username).getCustomerAddr());
-  	  orderDetail.setPaymentMode(rd);
+  	  orderDetail.setPaymentMode(paymentmode);
   	  orderDetail.setUsername(username);
   	  
   	  List<CartItem> cartItemList=cartDAO.listCartItems(username);
@@ -119,6 +110,16 @@ public class PaymentController {
   	  return "Receipt";
     }
     
-    
+    public int getGrandTotal(List<CartItem> cartList)
+ 	 {
+ 		int grandTotal=0,count=0;
+ 		while(count<cartList.size())
+ 		{
+ 			grandTotal=grandTotal+(cartList.get(count).getQuantity()*cartList.get(count).getPrice());
+ 			count++;
+ 		}
+ 		return grandTotal;
+ 	}
+
 
 }
