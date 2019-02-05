@@ -1,5 +1,7 @@
 package com.niit.controller;
-
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.niit.dao.CategoryDAO;
 import com.niit.dao.ProductDAO;
@@ -48,6 +51,33 @@ public class ProductController {
 	    m.addAttribute(product1);
 	    m.addAttribute("pageinfo","Manage Product");
 	    m.addAttribute("categoryList",this.getCategories());
+	    
+	    
+	    String imagepath = "C:\\Users\\mruser\\git\\Fashion-Mill\\FashionMillFrontend\\src\\main\\resources\\Images";
+		imagepath = imagepath+String.valueOf(product.getProductId())+ ".jpeg";
+		
+		File image = new File(imagepath);
+		MultipartFile filedet = product1.getPimage();
+		if(!filedet.isEmpty())
+		{
+			try 
+			{
+				byte buff[] = filedet.getBytes();
+				FileOutputStream fos = new FileOutputStream(image);
+				BufferedOutputStream bs = new BufferedOutputStream(fos);
+				bs.write(buff);
+				bs.close();
+ 			}
+			catch(Exception e)
+			{
+				m.addAttribute("errorInfo" , "Exception Occured during Image Uploading:" + e.getMessage());
+			}
+		}
+		else 
+		{
+			m.addAttribute("errorInfo" , "Problem Occured during Image Uploading:");
+			
+		}
 		
 		List<Product> listProducts=productDAO.listProducts();
 		m.addAttribute("productList", listProducts);

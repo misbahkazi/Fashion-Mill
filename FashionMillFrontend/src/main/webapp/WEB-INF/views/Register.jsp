@@ -4,7 +4,7 @@
 <form action="perform_login" method="post">
 <table border="1" align="center">
 	<tr bgcolor="gray">
-		<td colspan="2"> <center>Sign In</center></td>
+		<td colspan="2"> <center>Sign up</center></td>
 	</tr>
 	<tr bgcolor="pink">
 		<td>Login Name</td>
@@ -16,7 +16,7 @@
 	</tr>
 	<tr bgcolor="gray"> 
 		<td colspan="2">
-			<center><input type="submit" value="login"/></center>
+			<center><input type="submit" value="register"/></center>
 		</td>
 	</tr>
 </table>
