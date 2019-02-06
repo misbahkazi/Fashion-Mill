@@ -24,8 +24,8 @@
 				<li><a href="home">HOME</a></li>
 				<li><a href="<c:url value="/login"/>">LOGIN</a></li>
 				<li><a href="<c:url value="/register"/>">REGISTER</a></li>
-				<li><a href="<c:url value="/contactus"/>">Contact US</a></li>
-				<li><a href="<c:url value="/aboutus"/>">About US</a></li>
+				<li><a href="<c:url value="/contactUs"/>">Contact US</a></li>
+				<li><a href="<c:url value="/aboutUs"/>">About US</a></li>
 			</ul>
 			</c:if>
 			<c:if test="${sessionScope.loggedIn}">

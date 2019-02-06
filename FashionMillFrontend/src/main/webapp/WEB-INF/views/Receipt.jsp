@@ -5,12 +5,12 @@
 <table class="table table-bordered" align="center">
 
 <tr class="danger">
-      <td colspan="6"><center>RECEIPT</center></td>
+      <td colspan="5"><center>RECEIPT</center></td>
     </tr>
     
     <tr class="info">
     <td>ORDER ID</td>
-    <td>ORD000${orderDetail.orderID }</td>
+    <td>ORDER${orderDetail.orderID }</td>
     <td>Date</td>
     <td colspan="2">${orderDetail.Orderdate}</td>
     </tr>

@@ -35,7 +35,7 @@
   <tr>
     <td> Category </td>
     <td> 
-        <form:select path="categoryId">
+        <form:select path="categoryID">
            <form:option value="0" label="--Select List--" />
            <form:options items="${categoryList}" />
         </form:select>

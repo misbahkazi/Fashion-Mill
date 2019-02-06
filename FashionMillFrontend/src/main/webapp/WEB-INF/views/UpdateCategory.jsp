@@ -15,7 +15,7 @@
   
    <tr>
     <td> Category ID </td>
-    <td> <input type="text" name="categoryId" value="${category.categoryID}" readonly /></td>
+    <td> <input type="text" name="categoryID" value="${category.categoryID}" readonly /></td>
   </tr>
   
   <tr>

@@ -53,8 +53,8 @@ public class ProductController {
 	    m.addAttribute("categoryList",this.getCategories());
 	    
 	    
-	    String imagepath = "C:\\Users\\mruser\\git\\Fashion-Mill\\FashionMillFrontend\\src\\main\\resources\\Images";
-		imagepath = imagepath+String.valueOf(product.getProductId())+ ".jpeg";
+	    String imagepath = "C:\\Users\\mruser\\git\\Fashion-Mill\\FashionMillFrontend\\src\\main\\webapp\\resources\\Images";
+		imagepath = imagepath+String.valueOf(product.getProductId())+ ".jpg";
 		
 		File image = new File(imagepath);
 		MultipartFile filedet = product1.getPimage();
