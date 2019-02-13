@@ -10,8 +10,8 @@
 <tr>
   <td colspan="2">
     <center>
-     <input type="radio" name="paymentmode" value="CC">Credit Card
-     <input type="radio" name="paymentmode" value="COD">Cash On Delivery
+     <input type="radio" name="paymentMode" value="CC">Credit Card
+     <input type="radio" name="paymentMode" value="COD">Cash On Delivery
     </center>
   </td>
 </tr>

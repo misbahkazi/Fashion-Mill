@@ -10,5 +10,5 @@ public interface SupplierDetailDAO
 	public boolean deleteSupplier(SupplierDetail supplierDetail);
 	public boolean updateSupplier(SupplierDetail supplierDetail);
 	public List<SupplierDetail> listSuppliers();
-	public SupplierDetail getSupplier(int supplierID);
+	public SupplierDetail getSupplier(int supplierId);
 }

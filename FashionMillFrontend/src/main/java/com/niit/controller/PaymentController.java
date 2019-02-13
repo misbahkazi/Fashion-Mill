@@ -56,7 +56,7 @@ public class PaymentController {
     
     
     
-    @RequestMapping(value="/UpdateAddress", method=RequestMethod.POST)
+    @RequestMapping(value="/updateAddress", method=RequestMethod.POST)
     public String UpdateAddr(@RequestParam("addr")String addr,Model m, HttpSession session)
     {
   	  String username=(String)session.getAttribute("username");

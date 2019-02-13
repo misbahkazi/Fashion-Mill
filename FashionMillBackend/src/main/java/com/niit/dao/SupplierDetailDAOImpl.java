@@ -72,10 +72,10 @@ public class SupplierDetailDAOImpl implements SupplierDetailDAO
 	}
 
 	//@Override
-	public SupplierDetail getSupplier(int supplierID) 
+	public SupplierDetail getSupplier(int supplierId) 
 	{
 		Session session=sessionFactory.openSession();
-		SupplierDetail supplierDetail=session.get(SupplierDetail.class,supplierID);
+		SupplierDetail supplierDetail=session.get(SupplierDetail.class,supplierId);
 		session.close();
 		return supplierDetail;
 	}

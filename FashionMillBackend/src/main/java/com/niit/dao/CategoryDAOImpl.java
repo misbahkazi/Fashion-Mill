@@ -71,10 +71,10 @@ public class CategoryDAOImpl implements CategoryDAO
 	}
 
 	//@Override
-	public Category getCategory(int categoryID) 
+	public Category getCategory(int categoryId) 
 	{
 		Session session=sessionFactory.openSession();
-		Category category=session.get(Category.class,categoryID);
+		Category category=session.get(Category.class,categoryId);
 		session.close();
 		return category;
 	}

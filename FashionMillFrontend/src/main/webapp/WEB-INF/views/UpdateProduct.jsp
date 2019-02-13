@@ -1,61 +1,60 @@
 <%@ page language="java" contentType="text/html"%>
+
 <%@include file="Header.jsp" %>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<br/> <br/>
-
-
-<form:form action="<c:url value="/UpdateProduct"/>"modelAttribute="product" method="post">  
-<table align="center" class="table-bordered">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ 
+<form action="<c:url value="/updateProduct"/>" method="post">  
+<table align="center" class="table">
   
   <tr>
-    <td colspan="2"> <center>Update Product </center> </td>
+    <td colspan="2"> 
+    <h3><center>PRODUCT </center></h3> 
+    </td>
   </tr>
   
-  <tr>
-    <td> Product ID</td>
-    <td> <form:input path="productId"/></td>
+   <tr>
+    <td> Product ID </td>
+    <td> <input type="text" name="productId" value="${product.productId}" readonly /></td>
   </tr>
+ 
   
   <tr>
     <td> Product Name </td>
-    <td> <form:input path="productName"/></td>
+    <td> <input type="text" name="productName" value="${product.productName}"/></td>
   </tr>
-   
-  <tr>
+  
+   <tr>
     <td> Price </td>
-    <td> <form:input path="price"/></td>
+    <td> <input type="text" name="price" value="${product.price}"/></td>
   </tr>
   
   <tr>
     <td> Stock </td>
-    <td> <form:input path="stock"/></td>
+    <td> <input type="text" name="stock" value="${product.stock}"/></td>
   </tr>
   
   <tr>
     <td> Category </td>
-    <td> 
-        <form:select path="categoryID">
-           <form:option value="0" label="--Select List--" />
-           <form:options items="${categoryList}" />
-        </form:select>
-    
-    </td>
+    <td> <input type="text" name="categoryName" value="${category.categoryName}"/></td>
   </tr>
   
-  <tr>
+   <tr>
      <td> Supplier </td>
-     <td> <form:input path="supplierId" /> </td>
+     <td>  <input type="text" name="supplierId" value="${supplierDetail.supplierId}"/> </td>
+  </tr>
+  
+  
+  <tr>
+    <td> Product Description </td>
+    <td> <input type="text" name="productDesc" value="${product.productDesc}"/></td>
   </tr>
   
   <tr>
-     <td> Product Description </td>
-     <td> <form:input path="productDesc" /> </td>
-  </tr>
-  
-  <tr>
-     <td colspan="2"> <center><input type="submit" value="Update Product" class="btn btn-success" /> </center> </td>
+    <td colspan="2"> 
+    <center><input type="submit" value="UPDATE PRODUCT"/></center> 
+    </td>
   </tr>
      
 </table>
-</form:form>
+</form>

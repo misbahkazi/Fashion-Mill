@@ -13,16 +13,27 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.dao.ProductDAO;
+import com.niit.dao.UserDetailDAO;
+import com.niit.model.Category;
 import com.niit.model.Product;
+import com.niit.model.UserDetail;
+
+
 
 @Controller
 public class UserController 
 {
 	@Autowired 
 	ProductDAO productDAO;
+	
+	@Autowired
+	UserDetailDAO userDAO;
 	
 	@RequestMapping(value="/userhome")
 	public String showUserHome(Model m,HttpSession session)
@@ -32,7 +43,14 @@ public class UserController
 		m.addAttribute("productList", listProducts);
 		
 		return "UserHome";
+		}
+	
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
+	public String addUser(@ModelAttribute("user")UserDetail userDetail, Model model) {
+		userDAO.registerUser(userDetail);
+		return "Login";
 	}
+	
 	
 	@RequestMapping(value="/login_success")
 	public String loginCheck(Model m,HttpSession session)

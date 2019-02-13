@@ -28,7 +28,7 @@
 			m.addAttribute("pageinfo","Manage Category");
 			return "Category";
 		}
-		@RequestMapping(value="/AddCategory",method=RequestMethod.POST)
+		@RequestMapping(value="/addCategory",method=RequestMethod.POST)
 		public String addCategory(Model m,@RequestParam("categoryName")String categoryName,@RequestParam("categoryDesc")String categoryDesc)
 		{
 			Category category=new Category();
@@ -43,19 +43,22 @@
 			return "Category";
 		}
 		
-		@RequestMapping(value="/deleteCategory/{categoryID}")
-		public String deleteCategory(Model m,@PathVariable("categoryID")int categoryID)
+		@RequestMapping(value="/deleteCategory/{categoryId}")
+		public String deleteCategory(Model m,@PathVariable("categoryId")int categoryId)
 		{
-			Category category=categoryDAO.getCategory(categoryID);
+			Category category=categoryDAO.getCategory(categoryId);
 			categoryDAO.deleteCategory(category);
+			
+			List<Category> listCategories = categoryDAO.listCategories();
+			m.addAttribute("listCategories", listCategories);
 			
 			m.addAttribute("pageinfo","Manage Category");
 			return "Category";
 		}
-			@RequestMapping(value="/UpdateCategory",method=RequestMethod.POST)
-		public String updateCategory(Model m,@RequestParam("categoryID")int categoryID,@RequestParam("categoryName")String categoryName,@RequestParam("cDesc")String categoryDesc)
+			@RequestMapping(value="/updateCategory",method=RequestMethod.POST)
+		public String updateCategory(Model m,@RequestParam("categoryId")int categoryId,@RequestParam("categoryName")String categoryName,@RequestParam("categoryDesc")String categoryDesc)
 		{
-			Category category=categoryDAO.getCategory(categoryID);
+			Category category=categoryDAO.getCategory(categoryId);
 			category.setCategoryName(categoryName);
 			category.setCategoryDesc(categoryDesc);
 			categoryDAO.updateCategory(category);
@@ -66,10 +69,10 @@
 			m.addAttribute("pageinfo","Manage Category");
 			return "Category";
 		}
-			@RequestMapping(value="/editCategory/{categoryID}")
-			public String editCategory(Model m,@PathVariable("categoryID")int categoryID)
+			@RequestMapping(value="/editCategory/{categoryId}")
+			public String editCategory(Model m,@PathVariable("categoryId")int categoryId)
 			{
-				Category category=categoryDAO.getCategory(categoryID);
+				Category category=categoryDAO.getCategory(categoryId);
 				
 				m.addAttribute("category",category);
 				m.addAttribute("pageinfo","Manage Category");

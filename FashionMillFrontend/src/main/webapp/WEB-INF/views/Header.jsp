@@ -40,8 +40,8 @@
 						<ul class="nav navbar-nav">
 							 <li><a href="<c:url value="/userhome"/>">Home</a></li>
 							 <li><a href="<c:url value="/productDisplay"/>">Product Catalog</a></li>
-							 <li> <a href="<c:url value='/aboutus'/>"> ABOUT US </a></li>
-                             <li> <a href="<c:url value='/contactus'/>"> CONTACT US </a></li>
+							 <li> <a href="<c:url value='/aboutUs'/>"> ABOUT US </a></li>
+                             <li> <a href="<c:url value='/contactUs'/>"> CONTACT US </a></li>
                              <li> <a href="<c:url value='/cart'/>"> CART </a></li>
 						</ul>
 					</c:if>

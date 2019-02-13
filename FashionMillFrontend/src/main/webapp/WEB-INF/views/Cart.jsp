@@ -24,7 +24,7 @@
          <td>${cartItem.price}</td>
          <td>${cartItem.price * cartItem.quantity}</td>
          <td>
-             <input type="submit" value="UPDATE" btn="btn-success"/>
+             <input type="submit" value="updateCartItem" btn="btn-success"/>
              <a href="<c:url value="/deleteCartItem/${cartItem.cartItemId}"/>"class="btn btn-danger">Delete</a>
          </td>
        </tr>

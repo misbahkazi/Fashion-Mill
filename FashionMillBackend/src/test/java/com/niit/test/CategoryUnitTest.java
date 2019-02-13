@@ -58,7 +58,7 @@ public class CategoryUnitTest
 		
 		for(Category category:listCategories)
 		{
-			System.out.println("Category ID:"+category.getCategoryID());
+			System.out.println("Category Id:"+category.getCategoryId());
 			System.out.println("Category Name:"+category.getCategoryName());
 			System.out.println("Category Desc:"+category.getCategoryDesc());
 		}

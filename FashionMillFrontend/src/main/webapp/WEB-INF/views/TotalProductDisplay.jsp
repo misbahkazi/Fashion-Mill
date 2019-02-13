@@ -31,7 +31,7 @@
  
   <tr>
    <td> Category </td>
-   <td> ${product.categoryID}</td>
+   <td> ${product.categoryId}</td>
  </tr>
  
   <tr>

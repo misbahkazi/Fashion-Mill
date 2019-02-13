@@ -45,7 +45,7 @@
           <textarea name="addr" cols="100" rows="3"> ${addr}</textarea>
       </td>
       <td>
-      <input type="submit" value="Update Address" class="btn btn-success"/>
+      <input type="submit" value="updateAddress" class="btn btn-success"/>
       </td>
     </tr>  
  

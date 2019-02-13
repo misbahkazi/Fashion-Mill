@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.niit.dao.CategoryDAO;
@@ -42,8 +43,8 @@ public class ProductController {
 		m.addAttribute("pageinfo","Manage Product");
 		return "Product";
 	}
-	@RequestMapping(value="/InsertProduct",method=RequestMethod.POST)
-	public String insertProduct(@ModelAttribute("product")Product product,Model m)
+	@RequestMapping(value="/insertProduct",method=RequestMethod.POST)
+	public String insertProduct(@ModelAttribute("product")Product product,@RequestParam("pimage")MultipartFile filedet, Model m)
 	{
 	    productDAO.addProduct(product);
 		
@@ -53,11 +54,11 @@ public class ProductController {
 	    m.addAttribute("categoryList",this.getCategories());
 	    
 	    
-	    String imagepath = "C:\\Users\\mruser\\git\\Fashion-Mill\\FashionMillFrontend\\src\\main\\webapp\\resources\\Images";
+	    String imagepath = "C:\\Users\\mruser\\git\\Fashion-Mill\\FashionMillFrontend\\src\\main\\webapp\\resources\\images";
 		imagepath = imagepath+String.valueOf(product.getProductId())+ ".jpg";
 		
 		File image = new File(imagepath);
-		MultipartFile filedet = product1.getPimage();
+		//MultipartFile image = product1.getPimage();
 		if(!filedet.isEmpty())
 		{
 			try 
@@ -104,7 +105,7 @@ public class ProductController {
 		return "Product";
 		}
 	
-	@RequestMapping(value="/UpdateProduct",method=RequestMethod.POST)
+	@RequestMapping(value="/updateProduct",method=RequestMethod.POST)
     public String updateProduct(@ModelAttribute ("product")Product product,Model m)
 	
 	{
@@ -141,7 +142,7 @@ public class ProductController {
 	     
 	     for(Category category:listCategories)
 	      {
-	        categoryList.put(category.getCategoryID(),category.getCategoryName());	
+	        categoryList.put(category.getCategoryId(),category.getCategoryName());	
 	          }
 	    return categoryList;
 	}	

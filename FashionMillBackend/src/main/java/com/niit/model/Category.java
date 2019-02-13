@@ -11,16 +11,16 @@ public class Category
 {
 	@Id
 	@GeneratedValue
-	int categoryID;
+	int categoryId;
 	
 	String categoryName;
 	String categoryDesc;
 	
-	public int getCategoryID() {
-		return categoryID;
+	public int getCategoryId() {
+		return categoryId;
 	}
-	public void setCategoryID(int categoryID) {
-		this.categoryID = categoryID;
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 	public String getCategoryName() {
 		return categoryName;
