@@ -35,6 +35,8 @@ public class UserController
 	@Autowired
 	UserDetailDAO userDAO;
 	
+	
+	
 	@RequestMapping(value="/userhome")
 	public String showUserHome(Model m,HttpSession session)
 	{
@@ -45,15 +47,27 @@ public class UserController
 		return "UserHome";
 		}
 	
-	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public String addUser(@ModelAttribute("user")UserDetail userDetail, Model model) {
-		userDAO.registerUser(userDetail);
+
+	
+	@RequestMapping("/addUser")
+	public String registerUser(Model m, @RequestParam("username") String username, @RequestParam("customerName") String customerName, @RequestParam("customerAddr") String customerAddr, @RequestParam("password") String password) 
+	{
+		UserDetail user=new UserDetail();
+		
+			user.setUsername(username);
+			user.setCustomerName(customerName);
+			user.setCustomerAddr(customerAddr);
+			user.setPassword(password);
+			user.setRole("ROLE_USER");
+			user.setEnabled(true);
+			userDAO.registerUser(user);
+			
+		
 		return "Login";
 	}
 	
-	
 	@RequestMapping(value="/login_success")
-	public String loginCheck(Model m,HttpSession session)
+	public String loginCheck(Model m, HttpSession session) 
 	{
 		String page="";
 		boolean loggedIn=false;

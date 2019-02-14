@@ -14,6 +14,13 @@
 		<td>Full Name</td>
 		<td><input type="text" name="customerName" required/></td>
 	</tr>
+	
+	<tr bgcolor="pink">
+		<td>Address</td>
+		<td><input type="text" name="customerAddr" required/></td>
+	</tr>
+	
+	
 	<tr bgcolor="pink">
 		<td>User Name</td>
 		<td><input type="text" name="username" required/></td>

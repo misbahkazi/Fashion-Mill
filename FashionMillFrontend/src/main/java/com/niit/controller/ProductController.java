@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,14 +45,12 @@ public class ProductController {
 		return "Product";
 	}
 	@RequestMapping(value="/insertProduct",method=RequestMethod.POST)
-	public String insertProduct(@ModelAttribute("product")Product product,@RequestParam("pimage")MultipartFile filedet, Model m)
+	public String insertProduct(@ModelAttribute("product")Product product,@RequestParam("pimage") MultipartFile filedet, Model m)
 	{
 	    productDAO.addProduct(product);
 		
 		Product product1=new Product();
-	    m.addAttribute(product1);
-	    m.addAttribute("pageinfo","Manage Product");
-	    m.addAttribute("categoryList",this.getCategories());
+	   
 	    
 	    
 	    String imagepath = "C:\\Users\\mruser\\git\\Fashion-Mill\\FashionMillFrontend\\src\\main\\webapp\\resources\\images";
@@ -79,6 +78,10 @@ public class ProductController {
 			m.addAttribute("errorInfo" , "Problem Occured during Image Uploading:");
 			
 		}
+		
+		 m.addAttribute(product1);
+		    m.addAttribute("pageinfo","Manage Product");
+		    m.addAttribute("categoryList",this.getCategories());
 		
 		List<Product> listProducts=productDAO.listProducts();
 		m.addAttribute("productList", listProducts);

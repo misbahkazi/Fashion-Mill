@@ -51,7 +51,7 @@
   
   <tr>
      <td> Product Image </td> 
-     <td><form:input type="file" path="pimage"/></td>
+     <td><form:input type="file" path="pimage" /></td>
   </tr>
   
   <tr>
@@ -63,6 +63,7 @@
 
 <table class="table-bordered">
     <tr>
+    
       <td> Product ID </td>
       <td> Product Name </td>
       <td> Price </td>
@@ -78,11 +79,11 @@
        <td>  <center> ${product.price} </center> </td>
        <td>  <center> ${product.stock} </center> </td>
        <td>  <center> ${product.supplierId} </center> </td>
-       
+        <td>${product.pimage}</td>
        
        <td> <a href="<c:url value="/editProduct/${product.productId}"/>" class="btn btn-success"> EDIT </a></td>
        <td> <a href="<c:url value="/deleteProduct/${product.productId}"/>" class="btn btn-danger"> DELETE </a></td>
-       <td>  <center> ${product.pimage} </center> </td>
+      
      </tr>
    </c:forEach>
 </table> 
