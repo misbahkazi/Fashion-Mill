@@ -45,15 +45,17 @@ public class ProductController {
 		return "Product";
 	}
 	@RequestMapping(value="/insertProduct",method=RequestMethod.POST)
-	public String insertProduct(@ModelAttribute("product")Product product,@RequestParam("pimage") MultipartFile filedet, Model m)
+	public String insertProduct(@ModelAttribute("product")Product product,@RequestParam("pimage")MultipartFile filedet, Model m)
 	{
 	    productDAO.addProduct(product);
 		
 		Product product1=new Product();
-	   
+		m.addAttribute(product1);
+	    m.addAttribute("pageinfo","Manage Product");
+	    m.addAttribute("categoryList",this.getCategories());
 	    
 	    
-	    String imagepath = "C:\\Users\\mruser\\git\\Fashion-Mill\\FashionMillFrontend\\src\\main\\webapp\\resources\\images";
+	    String imagepath = "D:\\New folder (2)\\";
 		imagepath = imagepath+String.valueOf(product.getProductId())+ ".jpg";
 		
 		File image = new File(imagepath);
@@ -79,9 +81,7 @@ public class ProductController {
 			
 		}
 		
-		 m.addAttribute(product1);
-		    m.addAttribute("pageinfo","Manage Product");
-		    m.addAttribute("categoryList",this.getCategories());
+		 
 		
 		List<Product> listProducts=productDAO.listProducts();
 		m.addAttribute("productList", listProducts);

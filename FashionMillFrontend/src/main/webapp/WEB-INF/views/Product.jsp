@@ -79,9 +79,7 @@
        <td>  <center> ${product.price} </center> </td>
        <td>  <center> ${product.stock} </center> </td>
        <td>  <center> ${product.supplierId} </center> </td>
-        <td>${product.pimage}</td>
-       
-       <td> <a href="<c:url value="/editProduct/${product.productId}"/>" class="btn btn-success"> EDIT </a></td>
+        <td> <a href="<c:url value="/editProduct/${product.productId}"/>" class="btn btn-success"> EDIT </a></td>
        <td> <a href="<c:url value="/deleteProduct/${product.productId}"/>" class="btn btn-danger"> DELETE </a></td>
       
      </tr>
