@@ -1,4 +1,4 @@
-         <%@ page language="java" contentType="text/html"%>
+<%@ page language="java" contentType="text/html"%>
 <%@include file="Header.jsp" %>
 
 <div class="container">
@@ -18,7 +18,7 @@
   <c:forEach items="${cartItemList}" var="cartItem">
     <form action="<c:url value="/updateCartItem/${cartItem.cartItemId}"/>"method="get">
        <tr class="info">
-         <td>${cartItem.productid}</td>
+         <td>${cartItem.productId}</td>
          <td>${cartItem.productName}</td>
          <td><input type="text" value="${cartItem.quantity}" name="quantity"></td>
          <td>${cartItem.price}</td>

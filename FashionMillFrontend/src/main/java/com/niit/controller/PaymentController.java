@@ -85,14 +85,14 @@ public class PaymentController {
     }
     
     @RequestMapping(value="/receipt", method=RequestMethod.POST)
-    public String generateReceipt(@RequestParam ("paymentmode") String paymentmode, Model m,HttpSession session)
+    public String generateReceipt(@RequestParam ("PaymentMode") String PaymentMode, Model m,HttpSession session)
     {
   	  String username=(String)session.getAttribute("username");
   	  
   	  OrderDetail orderDetail=new OrderDetail();
-  	  orderDetail.setOrderDate(new Date());
+  	  orderDetail.setOrderDate(new java.util.Date());
   	  orderDetail.setShippingAddr(userDAO.getUser(username).getCustomerAddr());
-  	  orderDetail.setPaymentMode(paymentmode);
+  	  orderDetail.setPaymentMode(PaymentMode);
   	  orderDetail.setUsername(username);
   	  
   	  List<CartItem> cartItemList=cartDAO.listCartItems(username);

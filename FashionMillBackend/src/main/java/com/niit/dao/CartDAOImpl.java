@@ -74,8 +74,8 @@ public class CartDAOImpl implements CartDAO
 	public List<CartItem> listCartItems(String username) 
 	{
 		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("from CartItem where username=username");
-		query.setParameter("username", username);
+		Query query=session.createQuery("from CartItem where username=:username and paymentStatus='NP'");
+		query.setParameter("username",username);
 		List<CartItem> cartItemList=query.list();
 		session.close();
 		return  cartItemList;

@@ -138,6 +138,28 @@ public class ProductController {
 			return "UpdateProduct";
 		}
 		
+		
+		@RequestMapping(value="/productDisplay")
+		public String displayAllProduct(Model m)
+		{
+			m.addAttribute("pageinfo" , "Product Catalog");
+			List<Product> listProducts = productDAO.listProducts();
+			m.addAttribute("productList", listProducts);
+			
+			return "ProductDisplay";
+			
+		}
+		
+		@RequestMapping(value="/totalProductDisplay/{productId}")
+		public String totalProductDisplay(@PathVariable("productId")int productId , Model m)
+		{
+			m.addAttribute("pageinfo", "Product Info");
+			Product product = productDAO.getProduct(productId);
+			m.addAttribute("product", product);
+			
+			return "TotalProductDisplay";
+		}
+		
 		public LinkedHashMap<Integer,String> getCategories()
 	    {
 		List<Category> listCategories=categoryDAO.listCategories();

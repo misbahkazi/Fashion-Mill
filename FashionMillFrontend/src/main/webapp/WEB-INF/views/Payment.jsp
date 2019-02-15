@@ -2,6 +2,8 @@
 <%@include file="Header.jsp" %>
 
 <div class="container">
+
+<form action="<c:url value="/receipt"/>" method="post">
 <table class="table table-bordered" align="center">
 
 <tr>
@@ -10,8 +12,8 @@
 <tr>
   <td colspan="2">
     <center>
-     <input type="radio" name="paymentMode" value="CC">Credit Card
-     <input type="radio" name="paymentMode" value="COD">Cash On Delivery
+     <input type="radio" name="PaymentMode" value="CC">Credit Card
+     <input type="radio" name="PaymentMode" value="COD">Cash On Delivery
     </center>
   </td>
 </tr>

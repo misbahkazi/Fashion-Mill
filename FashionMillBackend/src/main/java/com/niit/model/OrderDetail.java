@@ -62,8 +62,8 @@ public class OrderDetail {
 	public String getPaymentMode() {
 		return paymentMode;
 	}
-	public void setPaymentMode(String paymentMode) {
-		this.paymentMode = paymentMode;
+	public void setPaymentMode(String PaymentMode) {
+		paymentMode = PaymentMode;
 	}
 	
 	

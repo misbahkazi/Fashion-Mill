@@ -37,7 +37,7 @@ public class OrderDAOImpl implements OrderDAO {
 		
 		
 		Session session=sessionFactory.getCurrentSession();
-		Query query=session.createQuery("update cartitem set paymentstatus='paid' where username=:uname");
+		Query query=session.createQuery("update CartItem set paymentStatus='P' where username=:uname");
 		query.setParameter("uname", username);
 		int row_eff=query.executeUpdate();
 		
